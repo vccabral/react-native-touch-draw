@@ -19,19 +19,18 @@ export default class TestApp extends Component {
     this.width = width;
     this.height = height;
     this.active_line_index = -1;
-    this.points_added = 0;
     this.lines = [];
     this.elements = [];
     this.onResponderMove = this.onResponderMove.bind(this);
     this.onResponderGrant = this.onResponderGrant.bind(this);
     this.onResponderRelease = this.onResponderRelease.bind(this);
-    this.addPoint = this.addPoint.bind(this);
     this._onContextCreate = this._onContextCreate.bind(this);
+    this.addPoint = this.addPoint.bind(this);
   }
 
   addPoint(location){
     this.lines[this.active_line_index].push([
-      2.0*(location.pageX/this.width-0.5), 
+      2.0*(location.pageX/this.width-0.5),
       2.0*(-location.pageY/this.height+0.5)
     ]);
 
@@ -57,8 +56,6 @@ export default class TestApp extends Component {
   onResponderRelease(evt){
     this.addPoint(evt.nativeEvent);
     this.end = new Date().getTime();
-    console.log(this.start, this.end);
-    console.log("events per second",this.points_added/(this.end-this.start)*1000);
   }
 
   _onContextCreate(gl){
@@ -114,6 +111,7 @@ export default class TestApp extends Component {
       requestAnimationFrame(frame);
     };
     frame();
+
   }
 
   render() {
