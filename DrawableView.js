@@ -17,11 +17,14 @@ export default class DrawableView extends Component {
     super(props);
     this.width = 0;
     this.height = 0;
+    this.send_clear_signal = true;
 
     this.point_index = 0;
     this.lines = [];
     this.elements = [];
+    this.raw_points = [[]];
     this.set_clear = false;
+    this.line_index = 0;
 
     this.onLayout = this.onLayout.bind(this);
     this.onResponderMove = this.onResponderMove.bind(this);
@@ -30,6 +33,16 @@ export default class DrawableView extends Component {
     this._onContextCreate = this._onContextCreate.bind(this);
     this.addPoint = this.addPoint.bind(this);
     this.addEdge = this.addEdge.bind(this);
+    this.clear = this.clear.bind(this);
+    this.get_points = this.get_points.bind(this);
+  }
+
+  clear(){
+    this.send_clear_signal = true;
+  }
+
+  get_points(){
+    return this.raw_points;
   }
 
   onLayout(evt){
@@ -45,10 +58,17 @@ export default class DrawableView extends Component {
   }
 
   addPoint(location){
-    this.lines.push([
-      2.0*(location.locationX/this.width-0.5),
-      2.0*(-location.locationY/this.height+0.5)
-    ]);
+    var x = 2.0*(location.locationX/this.width-0.5);
+    var y = 2.0*(-location.locationY/this.height+0.5);
+
+    if(this.line_index < this.raw_points.length){
+      this.raw_points.push([]);
+    }
+    this.raw_points[this.line_index].push({
+      x: x,
+      y: y
+    })
+    this.lines.push([x,y]);
     this.point_index++;
   }
 
@@ -65,16 +85,13 @@ export default class DrawableView extends Component {
     this.addPoint(evt.nativeEvent);
     this.addEdge();
     this.set_clear = true;
+    this.line_index++;
   }
 
   _onContextCreate(gl){
     var context = this;
 
     const regl = REGL({ gl });
-    regl.clear({
-      color: [1, 1, 1 , 1],
-      depth: 1,
-    });
 
     const frame = () => {
       regl.poll();
@@ -115,6 +132,15 @@ export default class DrawableView extends Component {
         context.elements = [];
         context.point_index = 0;
         context.set_clear = false;
+      }
+
+      if(this.send_clear_signal){
+        regl.clear({
+          color: [1, 1, 1 , 1],
+          depth: 1,
+        });
+
+        this.send_clear_signal = false;
       }
 
       gl.flush();
