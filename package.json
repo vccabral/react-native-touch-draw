@@ -19,6 +19,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "adaptive-bezier-curve": "^1.0.3",
+    "adaptive-quadratic-curve": "^1.0.2",
     "expo": "^21.0.0",
     "expo-three": "^2.0.2",
     "react": "16.0.0-alpha.12",
