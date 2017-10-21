@@ -9,7 +9,7 @@ import {
   GLView 
 } from 'expo';
 import Expo from 'expo';
-import REGL from "regl";
+import REGL from 'regl';
 
 
 export default class DrawableView extends Component {
