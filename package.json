@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jgrancher/react-native-sketch.git"
+    "url": "https://github.com/vccabral/react-native-touch-draw"
   },
   "scripts": {
     "start": "react-native-scripts start",
