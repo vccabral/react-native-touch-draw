@@ -2,12 +2,11 @@
   "name": "react-native-touch-draw",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "jest-expo": "^21.0.2",
-    "react-native-scripts": "1.5.0",
-    "react-test-renderer": "16.0.0-alpha.12"
-  },
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgrancher/react-native-sketch.git"
+  },
   "scripts": {
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
@@ -15,17 +14,21 @@
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
+  "devDependencies": {
+    "jest-expo": "^21.0.2",
+    "react-native-scripts": "1.5.0",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
   "jest": {
     "preset": "jest-expo"
   },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
   "dependencies": {
-    "adaptive-bezier-curve": "^1.0.3",
-    "adaptive-quadratic-curve": "^1.0.2",
-    "bezier-easing": "^2.0.3",
     "expo": "^21.0.0",
     "expo-three": "^2.0.2",
-    "react": "16.0.0-alpha.12",
-    "react-native": "^0.48.4",
     "regl": "^1.3.0",
     "three": "^0.87.1"
   }

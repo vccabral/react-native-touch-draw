@@ -10,7 +10,7 @@ import {
 } from 'expo';
 import Expo from 'expo';
 import REGL from 'regl';
-import DrawableView from './DrawableView';
+import DrawableView from './index';
 
 console.disableYellowBox = true;
 
