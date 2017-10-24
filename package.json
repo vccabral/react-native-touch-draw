@@ -1,7 +1,6 @@
 {
   "name": "react-native-touch-draw",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
   "devDependencies": {
     "jest-expo": "^21.0.2",
     "react-native-scripts": "1.5.0",
