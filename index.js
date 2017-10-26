@@ -47,6 +47,9 @@ export default class DrawableView extends Component {
 
   clear(){
     this.send_clear_signal = true;
+    if("onReset" in this.props){
+      this.props.onReset();
+    }
   }
 
   get_points(){
@@ -125,6 +128,10 @@ export default class DrawableView extends Component {
     );
     this.set_clear = true;
     this.line_index++;
+
+    if("onUpdate" in this.props){
+      this.props.onUpdate();
+    }
   }
 
   _onContextCreate(gl){
