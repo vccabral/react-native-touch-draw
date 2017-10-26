@@ -18,7 +18,9 @@ export default class TestApp extends Component {
   render() {
     return (
       <View style={{flex:1}}>
-        <DrawableView /> 
+        <DrawableView
+          style={{flex: 1, backgroundColor: "transparent"}}
+        /> 
       </View>  
     );
   }

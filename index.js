@@ -195,7 +195,7 @@ export default class DrawableView extends Component {
   render() {
     return (
       <View 
-        style={[{flex: 1, backgroundColor: "transparent"}]}
+        style={[this.props.style]}
         onStartShouldSetResponder={(evt) => true}
         onMoveShouldSetResponder={(evt) => true}  
         onLayout={this.onLayout}
