@@ -177,7 +177,7 @@ export default class DrawableView extends Component {
 
       if(context.send_clear_signal){
         regl.clear({
-          color: [1, 1, 1 , 1],
+          color: [0, 0, 0 , 0],
           depth: 1,
         });
 
