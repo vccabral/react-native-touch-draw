@@ -195,7 +195,7 @@ export default class DrawableView extends Component {
   render() {
     return (
       <View 
-        style={[{flex: 1}]}
+        style={[{flex: 1, backgroundColor: "transparent"}]}
         onStartShouldSetResponder={(evt) => true}
         onMoveShouldSetResponder={(evt) => true}  
         onLayout={this.onLayout}
@@ -204,7 +204,7 @@ export default class DrawableView extends Component {
         onResponderRelease={this.onResponderRelease}
       > 
         <GLView
-          style={{flex: 1}}
+          style={{flex: 1, backgroundColor: "transparent"}}
           onContextCreate={this._onContextCreate}
         />
       </View>
